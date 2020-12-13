@@ -1,3 +1,7 @@
+<?php 
+session_start();
+if(($_SESSION)['logged_in']==true){
+?>
 <!DOCTYPE html>
 <html>
 
@@ -60,3 +64,9 @@
 </body>
 
 </html>
+        <?php 
+}
+else{
+    header('location: login.php');
+}
+?>
