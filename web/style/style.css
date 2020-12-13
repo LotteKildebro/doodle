@@ -259,17 +259,6 @@ footer .fa-instagram {
   .header .center {
     width: 50%;
   }
-  .header {
-    /* .right {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        width: 40%;
-        height: 60%;
-        transform: translate(0, 0);
-        padding: 1rem;
-    }*/
-  }
   .header .left {
     position: absolute;
     top: 20%;
