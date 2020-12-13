@@ -37,7 +37,8 @@
                         <div class="navbar-nav">
                             <a href="about.php" class="nav-item nav-link">About</a>
                             <a href="contact.php" class="nav-item nav-link">Contact</a>
-                            <a href="game.php" class="nav-item nav-link">Play game</a>
+                            <a href="playgame.php" class="nav-item nav-link">Play game</a>
+                            <a href="game.php" class="nav-item nav-link">Profile</a>
                         </div>
                         <div class="navbar-nav ml-auto login">
                             <a href="register.php" class="nav-item nav-link">Sign up</a>
@@ -68,5 +69,3 @@
 </body>
 
 </html>
-
-

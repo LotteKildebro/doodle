@@ -2,7 +2,6 @@
 session_start();
 if(($_SESSION)['logged_in']==true){
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +40,10 @@ if(($_SESSION)['logged_in']==true){
 
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav">
-                            <a href="#" class="nav-item nav-link active">About</a>
+                            <a href="about.php" class="nav-item nav-link active">About</a>
                             <a href="contact.php" class="nav-item nav-link">Contact</a>
-                            <a href="game.php" class="nav-item nav-link">Play game</a>
-                           
+                            <a href="playgame.php" class="nav-item nav-link">Play game</a>
+                            <a href="game.php" class="nav-item nav-link">Profile</a>
                         </div>
                         <div class="navbar-nav ml-auto login">
                             <a href="register.php" class="nav-item nav-link">Sign up</a>
@@ -145,7 +144,6 @@ if(($_SESSION)['logged_in']==true){
 </body>
 
 </html>
-
 <?php 
 }
 else{

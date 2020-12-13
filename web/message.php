@@ -17,7 +17,7 @@ $message = mysqli_real_escape_string($link, $_REQUEST['message']);
 // Attempt insert query execution
 $sql = "INSERT INTO contact (fname, email, tlf, `message`) VALUES ('$fname', '$email', '$tlf', '$message')";
 if(mysqli_query($link, $sql)){
-    echo "Thank you for your message.";
+    echo "<script>alert('Thank you for your message');</script>";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
@@ -28,7 +28,6 @@ mysqli_close($link);
 <html>
 <head>
 </head>
-
 <body>
 <div id="center_button">
     <button onclick="location.href='contact.php'">Back to site</button>
