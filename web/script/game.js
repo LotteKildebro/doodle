@@ -1,6 +1,5 @@
 let canvas = document.querySelector("#canvas");
 let ctx = canvas.getContext('2d');
-/*setInterval(mainLoop, 1000 / 60);*/
 
 /*-----------IMAGE TILES------------*/
 
