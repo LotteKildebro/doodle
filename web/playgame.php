@@ -6,7 +6,6 @@ if(($_SESSION)['logged_in']==true){
 <html>
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- My style -->
@@ -27,16 +26,17 @@ if(($_SESSION)['logged_in']==true){
 </head>
 
 <body>
-    <audio autoplay="autoplay" loop>
-        <source src="gamesounds/t.mp3" />
-    </audio>
-
- 
-    <div class="buttons-game">
+<div class="buttons-game">
     <a class="mybutton" href="game.php">Back to profile<a>
     <a class="mybutton" href="playgame.php">Start over<a>
     </div>
-   
+<div class="game-wrapper-mobile">
+    <h1>The game can only be played on desktops.</h1>
+</div>
+    <div class="game-wrapper">
+    <audio autoplay="autoplay" loop>
+        <source src="gamesounds/t.mp3" />
+    </audio>
 
     <center>
         <h1>MIKI'S ISLAND ESCAPE... WITH ZOMBIES</h1>
@@ -57,14 +57,12 @@ if(($_SESSION)['logged_in']==true){
         <div id="boxscore">Bananas:</div>
     </div>
 
-
-
-
     <script src="script/game.js"></script>
+</div>
 </body>
 
 </html>
-        <?php 
+<?php 
 }
 else{
     header('location: login.php');
