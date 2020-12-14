@@ -40,7 +40,7 @@ if(($_SESSION)['logged_in']==true){
 
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav">
-                            <a href="about.php" class="nav-item nav-link active">About</a>
+                            <a href="about.php" class="nav-item nav-link">About</a>
                             <a href="contact.php" class="nav-item nav-link">Contact</a>
                             <a href="playgame.php" class="nav-item nav-link">Play game</a>
                             <a href="game.php" class="nav-item nav-link">Profile</a>
