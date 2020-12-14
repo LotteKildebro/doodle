@@ -253,7 +253,45 @@ footer .fa-instagram {
   color: white;
 }
 
-/*=== store devices (desktops, 992px og op efter...) ===*/
+.game-wrapper-mobile {
+  display: block;
+  color: white;
+}
+
+.game-wrapper {
+  display: none;
+}
+
+/*---contact----*/
+
+.contact .row p {
+  padding: 1em;
+}
+
+.contact .row h2 {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.contact form {
+  padding: 1em 2em 2em 2em;
+}
+
+.contact form button {
+  margin-left: 20em;
+}
+
+/*=== store devices===*/
+
+@media (min-width: 1200px) {
+  .game-wrapper-mobile {
+    display: none;
+    color: white;
+  }
+  .game-wrapper {
+    display: block;
+  }
+}
 
 @media (min-width: 560px) {
   .header .center {
@@ -317,6 +355,9 @@ footer .fa-instagram {
     background-color: #60aa64;
     color: white;
     padding: 7em;
+  }
+  .contact .row p {
+    padding: 0em;
   }
   .register-wrap h2 {
     text-align: center;
