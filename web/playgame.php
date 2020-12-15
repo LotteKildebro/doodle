@@ -55,6 +55,8 @@ if(($_SESSION)['logged_in']==true){
     <div id="text">
         <div id="demo">Life:</div>
         <div id="boxscore">Bananas:</div>
+        <div id="survivor">Bananas:</div>
+        
     </div>
 
     <script src="script/game.js"></script>

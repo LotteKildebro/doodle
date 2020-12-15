@@ -1,5 +1,7 @@
 let canvas = document.querySelector("#canvas");
+//Is a DOMString containing the context identifier defining the drawing context associated to the canvas.
 let ctx = canvas.getContext('2d');
+
 
 /*-----------IMAGE TILES------------*/
 
@@ -17,13 +19,11 @@ let monkeyking = new Image();
 monkeyking.src = 'tiles/monkey.png';
 
 //Roads 
-
 let roadimg = new Image();
 roadimg.src = 'tiles/road.png';
 
 
 //decorations walls
-
 let greenTile = new Image();
 greenTile.src = 'tiles/tile_green.png';
 
@@ -45,18 +45,26 @@ let bananaImg = new Image();
 bananaImg.src = 'tiles/banana1.png';
 
 //Next level
-
 let lvl2 = new Image();
 lvl2.src = 'tiles/lvl2.png';
 
+//Survivors
+let survivor1 = new Image();
+survivor1.src = 'tiles/survivor.png';
+
+let survivor2 = new Image();
+survivor2.src = 'tiles/survivor2.png';
+
+
 
 /*-----------MAP------------*/
-/*y=20 , x=12*/
+/*y=20 , x=12 
+Multidimentionelle array*/
 let levels = [
     [
         //1
         [0, 6, 0, 0, 0, 11, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 11, 0, 0, 0],
-        [0, 1, 12, 1, 14, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 12, 1, 6],
+        [0, 1, 12, 1, 14, 1, 1, 1, 1, 20, 1, 0, 1, 1, 1, 1, 1, 12, 1, 6],
         [7, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0],
         [0, 2, 0, 11, 0, 14, 1, 12, 1, 0, 12, 0, 11, 0, 1, 1, 1, 0, 14, 0],
         [11, 1, 1, 12, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 3],
@@ -65,21 +73,21 @@ let levels = [
         [0, 1, 0, 1, 0, 1, 0, 0, 12, 14, 1, 0, 12, 0, 12, 0, 1, 12, 1, 6],
         [0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 12, 0, 1, 0, 14, 1, 1, 0, 1, 0],
         [11, 1, 6, 1, 0, 0, 7, 1, 0, 11, 1, 1, 1, 0, 7, 0, 1, 0, 1, 11],
-        [0, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 20, 0],
         [0, 0, 6, 0, 0, 6, 0, 0, 0, 11, 0, 0, 7, 0, 0, 11, 0, 6, 0, 0],
     ],
     [
         [0, 6, 0, 0, 0, 11, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 1, 1, 1, 1, 12, 1, 1, 6],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 1, 1, 20, 1, 12, 1, 1, 6],
         [7, 1, 0, 1, 0, 0, 12, 0, 12, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0],
         [0, 2, 0, 1, 0, 14, 1, 1, 1, 0, 12, 0, 0, 0, 1, 1, 1, 0, 14, 13],
-        [0, 1, 1, 12, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 15],
+        [0, 1, 1, 12, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 30, 1, 15],
         [0, 1, 0, 0, 0, 1, 6, 0, 0, 0, 1, 0, 0, 1, 14, 0, 12, 0, 1, 0],
         [6, 1, 0, 1, 1, 12, 1, 1, 1, 0, 1, 0, 11, 0, 1, 0, 1, 0, 1, 6],
-        [0, 1, 1, 1, 0, 1, 0, 0, 12, 14, 1, 1, 1, 0, 12, 0, 1, 12, 1, 0],
+        [0, 1, 1, 1, 0, 20, 0, 0, 12, 14, 1, 1, 1, 0, 12, 0, 1, 12, 1, 0],
         [0, 12, 0, 1, 1, 1, 1, 1, 1, 0, 12, 0, 1, 0, 1, 1, 1, 0, 1, 0],
         [0, 1, 6, 1, 0, 0, 7, 1, 0, 11, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0],
-        [0, 1, 1, 12, 1, 14, 1, 1, 1, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 12, 1, 14, 1, 1, 30, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0],
         [0, 0, 6, 0, 0, 0, 11, 0, 0, 0, 0, 7, 0, 0, 0, 0, 11, 0, 0, 6],
     ]
 
@@ -95,7 +103,7 @@ let time;
 
 //Starter timeren
 time = setInterval(function () {
-    seconds -= 1;
+    seconds--;
     document.querySelector('#time-showing').innerText = seconds;
 
     //Time up
@@ -103,7 +111,8 @@ time = setInterval(function () {
         document.querySelector("#timetext").style.display = 'none';
 
         document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-            "Bananas score: " + score + '</br>';
+            "Bananas score: " + score + '</br>' +
+            "Survivor(s) saved: " + saved;
 
         document.getElementById("gameover").style.backgroundColor = 'black';
 
@@ -123,13 +132,13 @@ function nextLevel() {
     drawMaze();
 }
 
-
 /*-----------TILES------------*/
 let tileSize = 50;
 
+//et object, playerposition
 let playerPosition = {
-    x: 9,
-    y: 9
+    x: 0,
+    y: 0
 };
 
 //Roads
@@ -154,11 +163,18 @@ let monkey = 15;
 //next level
 let levl2 = 3;
 
+//next level
+let survive1 = 20;
+let survive2 = 30;
+
+
 /*-----------SCORE AND LIFE------------*/
 let score = 0;
-document.getElementById("boxscore").innerHTML = "Bananas: " + score;
+document.querySelector("#boxscore").innerHTML = "Bananas: " + score;
 let life = 3;
-document.getElementById("demo").innerHTML = "Life: " + life;
+document.querySelector("#demo").innerHTML = "Life: " + life;
+let saved = 0;
+document.querySelector("#survivor").innerHTML = "Survivor(s) saved: " + saved;
 
 /*-----------DRAWING MAZE------------*/
 function drawMaze() {
@@ -201,6 +217,12 @@ function drawMaze() {
             else if (maze[y][x] === levl2) {
                 ctx.drawImage(lvl2, x * tileSize, y * tileSize, tileSize, tileSize);
             }
+            //survivors
+            else if (maze[y][x] === survive1) {
+                ctx.drawImage(survivor1, x * tileSize, y * tileSize, tileSize, tileSize);
+            } else if (maze[y][x] === survive2) {
+                ctx.drawImage(survivor2, x * tileSize, y * tileSize, tileSize, tileSize);
+            }
 
         }
     }
@@ -241,7 +263,10 @@ function attack() {
 /*-----------WALKABLE TILES------------*/
 //Walkable tiles function
 function isWalkable(targetTile) {
-    if (targetTile === road || targetTile === banana || targetTile === levl2 || targetTile === enemyZombie || targetTile === monkey) {
+    if (targetTile === road || targetTile === banana ||
+        targetTile === levl2 || targetTile === enemyZombie ||
+        targetTile === monkey || targetTile === survive1 ||
+        targetTile === survive2) {
         return true;
     } else {
         return false;
@@ -252,6 +277,7 @@ function isWalkable(targetTile) {
 /*------------CONTROLS--------------- */
 window.addEventListener('keydown', (e) => {
 
+    //Bruger switch statement til at vælge 1 af mange kode blokke som skal executes.
     let targetTile;
     switch (e.keyCode) {
         case 37: //left
@@ -272,7 +298,8 @@ window.addEventListener('keydown', (e) => {
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
                         document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                            "Bananas score: " + score + '</br>';
+                            "Bananas score: " + score + '</br>' +
+                            "Survivor(s) score: " + saved + '</br>';
                         document.getElementById("gameover").style.backgroundColor = 'black';
                         document.getElementById("gameover").style.border = '3px solid green';
 
@@ -284,7 +311,8 @@ window.addEventListener('keydown', (e) => {
                     document.querySelector("#timetext").style.display = 'none';
 
                     document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                        "Bananas score: " + score + '</br>';
+                        "Bananas score: " + score + '</br>' +
+                        "Survivor(s) score: " + saved + '</br>';
                     document.getElementById("gameover").style.backgroundColor = 'black';
                     document.getElementById("gameover").style.border = '3px solid green';
                 } else if (targetTile === levl2) {
@@ -306,6 +334,12 @@ window.addEventListener('keydown', (e) => {
                     collect();
                     document.getElementById("boxscore").innerHTML = "Bananas: " + score;
 
+                } else if (targetTile === survive1 ||
+                    targetTile === survive2) {
+                    saved++;
+                    collect();
+                    document.getElementById("boxscore").innerHTML = "Bananas: " + score;
+                    document.querySelector("#survivor").innerHTML = "Survivor(s) saved: " + saved;
                 } else if (targetTile === enemyZombie) {
                     life--;
                     attack();
@@ -313,7 +347,8 @@ window.addEventListener('keydown', (e) => {
 
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
-                        document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
+                        document.getElementById("gameover").innerHTML = '</br>' + '</br>' +
+                            "GAME OVER" + '</br>' +
                             "Bananas score: " + score + '</br>';
                         document.getElementById("gameover").style.backgroundColor = 'black';
                         document.getElementById("gameover").style.border = '3px solid green';
@@ -322,16 +357,20 @@ window.addEventListener('keydown', (e) => {
                 } else if (targetTile === monkey && score >= 10) {
 
                     document.querySelector("#timetext").style.display = 'none';
-                    document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "YOU WON" + '</br>' +
-                        "Bananas score: " + score + '</br>';
+                    document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "YOU WON" +
+                        '</br>' +
+                        "Bananas score: " + score + '</br>' +
+                        "Survivor(s) score: " + saved + '</br>';
                     document.getElementById("gameover").style.backgroundColor = 'black';
                     document.getElementById("gameover").style.border = '3px solid green';
 
                 } else if (targetTile === monkey && score < 10) {
 
                     document.querySelector("#timetext").style.display = 'none';
-                    document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                        "Bananas score: " + score + '</br>';
+                    document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" +
+                        '</br>' +
+                        "Bananas score: " + score + '</br>' +
+                        "Survivor(s) score: " + saved + '</br>';
                     document.getElementById("gameover").style.backgroundColor = 'black';
                     document.getElementById("gameover").style.border = '3px solid green';
                 } else if (targetTile === levl2) {
@@ -360,7 +399,8 @@ window.addEventListener('keydown', (e) => {
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
                         document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                            "Bananas score: " + score + '</br>';
+                            "Bananas score: " + score + '</br>' +
+                            "Survivor(s) score: " + saved + '</br>';
                         document.getElementById("gameover").style.backgroundColor = 'black';
                         document.getElementById("gameover").style.border = '3px solid green';
 
@@ -374,7 +414,8 @@ window.addEventListener('keydown', (e) => {
 
                     document.querySelector("#timetext").style.display = 'none';
                     document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                        "Bananas score: " + score + '</br>';
+                        "Bananas score: " + score + '</br>' +
+                        "Survivor(s) score: " + saved + '</br>';
                     document.getElementById("gameover").style.backgroundColor = 'black';
                     document.getElementById("gameover").style.border = '3px solid green';
                 } else if (targetTile === levl2) {
@@ -401,14 +442,16 @@ window.addEventListener('keydown', (e) => {
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
                         document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                            "Bananas score: " + score + '</br>';
+                            "Bananas score: " + score + '</br>' +
+                            "Survivor(s) score: " + saved + '</br>';
                         document.getElementById("gameover").style.backgroundColor = 'black';
                         document.getElementById("gameover").style.border = '3px solid green';
                     }
                 } else if (targetTile === monkey && score >= 10) {
                     document.getElementById("winbox").innerHTML = "You won! Your score is " + score;
                 } else if (targetTile === monkey && score < 10) {
-                    document.getElementById("gameover").innerHTML = "You lost! Your scored " + score;
+                    document.getElementById("gameover").innerHTML = "You lost! Your scored " + score +
+                        "Survivor(s) score: " + saved + '</br>';
                 } else if (targetTile === levl2) {
                     levelUp();
                     nextLevel();
