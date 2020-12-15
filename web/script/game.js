@@ -73,21 +73,21 @@ let levels = [
         [0, 1, 0, 1, 0, 1, 0, 0, 12, 14, 1, 0, 12, 0, 12, 0, 1, 12, 1, 6],
         [0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 12, 0, 1, 0, 14, 1, 1, 0, 1, 0],
         [11, 1, 6, 1, 0, 0, 7, 1, 0, 11, 1, 1, 1, 0, 7, 0, 1, 0, 1, 11],
-        [0, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 20, 0],
+        [0, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 20, 1, 0],
         [0, 0, 6, 0, 0, 6, 0, 0, 0, 11, 0, 0, 7, 0, 0, 11, 0, 6, 0, 0],
     ],
     [
         [0, 6, 0, 0, 0, 11, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 1, 1, 20, 1, 12, 1, 1, 6],
         [7, 1, 0, 1, 0, 0, 12, 0, 12, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0],
-        [0, 2, 0, 1, 0, 14, 1, 1, 1, 0, 12, 0, 0, 0, 1, 1, 1, 0, 14, 13],
-        [0, 1, 1, 12, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 30, 1, 15],
+        [0, 2, 0, 1, 0, 14, 1, 1, 1, 0, 12, 0, 0, 0, 1, 30, 1, 0, 14, 13],
+        [0, 1, 1, 12, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 15],
         [0, 1, 0, 0, 0, 1, 6, 0, 0, 0, 1, 0, 0, 1, 14, 0, 12, 0, 1, 0],
         [6, 1, 0, 1, 1, 12, 1, 1, 1, 0, 1, 0, 11, 0, 1, 0, 1, 0, 1, 6],
-        [0, 1, 1, 1, 0, 20, 0, 0, 12, 14, 1, 1, 1, 0, 12, 0, 1, 12, 1, 0],
-        [0, 12, 0, 1, 1, 1, 1, 1, 1, 0, 12, 0, 1, 0, 1, 1, 1, 0, 1, 0],
+        [0, 1, 1, 1, 0, 1, 0, 0, 12, 14, 1, 1, 1, 0, 12, 0, 1, 12, 1, 0],
+        [0, 12, 0, 1, 1, 1, 20, 1, 1, 0, 12, 0, 1, 0, 1, 1, 1, 0, 1, 0],
         [0, 1, 6, 1, 0, 0, 7, 1, 0, 11, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0],
-        [0, 1, 1, 12, 1, 14, 1, 1, 30, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 12, 1, 14, 1, 30, 1, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1, 0],
         [0, 0, 6, 0, 0, 0, 11, 0, 0, 0, 0, 7, 0, 0, 0, 0, 11, 0, 0, 6],
     ]
 
@@ -291,6 +291,11 @@ window.addEventListener('keydown', (e) => {
                     score++;
                     collect();
                     document.getElementById("boxscore").innerHTML = "Bananas: " + score;
+                } else if (targetTile === survive1 ||
+                    targetTile === survive2) {
+                    saved++;
+                    collect();
+                    document.querySelector("#survivor").innerHTML = "Survivor(s) saved: " + saved;
                 } else if (targetTile === enemyZombie) {
                     life--;
                     attack();
@@ -338,7 +343,6 @@ window.addEventListener('keydown', (e) => {
                     targetTile === survive2) {
                     saved++;
                     collect();
-                    document.getElementById("boxscore").innerHTML = "Bananas: " + score;
                     document.querySelector("#survivor").innerHTML = "Survivor(s) saved: " + saved;
                 } else if (targetTile === enemyZombie) {
                     life--;
@@ -392,6 +396,11 @@ window.addEventListener('keydown', (e) => {
                     collect();
                     document.getElementById("boxscore").innerHTML = "Bananas: " + score;;
 
+                } else if (targetTile === survive1 ||
+                    targetTile === survive2) {
+                    saved++;
+                    collect();
+                    document.querySelector("#survivor").innerHTML = "Survivor(s) saved: " + saved;
                 } else if (targetTile === enemyZombie) {
                     life--;
                     document.getElementById("demo").innerHTML = "Life: " + life;
@@ -435,6 +444,11 @@ window.addEventListener('keydown', (e) => {
                     score++;
                     collect();
                     document.getElementById("boxscore").innerHTML = "Bananas: " + score;;
+                } else if (targetTile === survive1 ||
+                    targetTile === survive2) {
+                    saved++;
+                    collect();
+                    document.querySelector("#survivor").innerHTML = "Survivor(s) saved: " + saved;
                 } else if (targetTile === enemyZombie) {
                     life--;
                     document.getElementById("demo").innerHTML = "Life: " + life;
